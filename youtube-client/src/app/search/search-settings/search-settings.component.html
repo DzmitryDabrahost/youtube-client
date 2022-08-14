@@ -1,0 +1,19 @@
+<div class="search-settings">
+  <span>Sorting by:</span>
+  <div class="search-settings-buttons">
+    <button
+      class="search-settings-button text-underline"
+      mat-button color="primary"
+      (click)="sortingByDate()"
+      >date
+    </button>
+    <button
+      class="search-settings-button text-underline"
+      mat-button color="primary"
+      (click)="sortingByView()"
+      >count of views
+    </button>
+    <button class="search-settings-button" mat-button color="primary">by word or sentance</button>
+  </div>
+  <input #sortingInput class="search-settings-input" (input)="setFilterWord(sortingInput.value)">
+</div>

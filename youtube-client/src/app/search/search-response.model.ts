@@ -1,10 +1,10 @@
-import ItemVideoData from './search-item.model';
+import IItemVideoData from './search-item.model';
 
-export default interface VideosResponseData {
+export default interface IVideosResponseData {
   etag: string;
   kind: string;
   pageInfo: PageInfo;
-  items: ItemVideoData;
+  items: IItemVideoData[];
 }
 
 interface PageInfo {

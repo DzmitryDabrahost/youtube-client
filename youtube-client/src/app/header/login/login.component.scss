@@ -1,0 +1,24 @@
+.header-login {
+  color: #4F4F4F;
+  display: flex;
+  align-items: center;
+  gap: 10.5px;
+  position: absolute;
+  top: 38.4px;
+  right: 11%;
+  transform: translate(0, -50%);
+
+  &-username {
+    font-size: 12px;
+  }
+
+  &-icon {
+    height: 24px;
+    width: 24px;
+    cursor: pointer;
+
+    &:hover {
+      opacity: .8;
+    }
+  }
+}

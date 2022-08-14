@@ -1,0 +1,29 @@
+.header {
+  height: 80px;
+  background: #E5E5E5;
+
+  &-wrapper {
+    height: 80px;
+    display: flex;
+    flex-wrap: nowrap;
+    width: 100%;
+    gap: 10px;
+    justify-content: center;
+    align-items: center;
+  }
+
+  &-logo {
+    width: 50px;
+    height: 50px;
+  }
+
+  &-settings {
+    height: 24px;
+    width: 24px;
+    cursor: pointer;
+
+    &:hover {
+      opacity: .8;
+    }
+  }
+}

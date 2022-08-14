@@ -1,1 +1,10 @@
-<p>search-input works!</p>
+<div class="search-input">
+  <form class="search-input-form">
+    <mat-form-field class="search-input-field" appearance="legacy">
+      <mat-label>What are you want to find out?</mat-label>
+      <input #searchInput matInput class="search-input-input">
+    </mat-form-field>
+    <button mat-raised-button class="button search-input-button" (click)="enterSearchValue(searchInput.value)">Search</button>
+  </form>
+</div>
+

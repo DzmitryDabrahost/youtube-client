@@ -1,4 +1,4 @@
-export default interface ItemVideoData {
+export default interface IItemVideoData {
   kind: string;
   etag: string;
   id: string;
@@ -7,15 +7,18 @@ export default interface ItemVideoData {
 }
 
 interface Snippets {
-  categoryId: number;
+  categoryId: string;
   localized: Localized;
   publishedAt: string;
   channelId: string;
   title: string;
   description: string;
   thumbnails: Thumbnails;
+  defaultAudioLanguage?: string;
+  defaultLanguage?: string;
+  liveBroadcastContent?: string;
   channelTitle: string;
-  tags: [string]
+  tags: string[];
 }
 
 interface Localized {
@@ -38,9 +41,9 @@ interface ThumbnailsData {
 }
 
 interface Statistics {
-  commentCount: number;
-  dislikeCount: number;
-  favoriteCount: number;
-  likeCount: number;
-  viewCount: number;
+  commentCount: string;
+  dislikeCount: string;
+  favoriteCount: string;
+  likeCount: string;
+  viewCount: string;
 }
