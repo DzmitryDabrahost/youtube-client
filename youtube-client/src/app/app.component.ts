@@ -6,7 +6,7 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.scss'],
 })
 export default class AppComponent {
-  title = 'youtube-client';
+  title: string = 'youtube-client';
 
   showSettingsBlock: boolean = false;
 
@@ -18,20 +18,20 @@ export default class AppComponent {
 
   filter: string = '';
 
-  showSettings(response: boolean) {
+  showSettings(response: boolean): void {
     this.showSettingsBlock = response;
   }
 
-  showCards(value: string) {
+  showCards(value: string): void {
     this.searchValue = value;
     this.isShowCards = !!this.searchValue;
   }
 
-  sortByDate(value: string) {
+  sortByDate(value: string): void {
     this.sorting = value;
   }
 
-  filterByWord(value: string) {
+  filterByWord(value: string): void {
     this.filter = value;
   }
 }

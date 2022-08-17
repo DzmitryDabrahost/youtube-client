@@ -1,6 +1,7 @@
 import {
   Component, EventEmitter, Input, Output,
 } from '@angular/core';
+import SortingWords from '../../Enums/SortingWords.enum.model';
 
 @Component({
   selector: 'app-search-settings',
@@ -18,27 +19,27 @@ export default class SearchSettingsComponent {
 
   filter: string;
 
-  sortingByDate() {
-    if (this.sorting === 'dateUp') {
-      this.sorting = 'dateDown';
+  sortingByDate(): void {
+    if (this.sorting === SortingWords.dateUp) {
+      this.sorting = SortingWords.dateDown;
       this.sortChangeBy.emit(this.sorting);
     } else {
-      this.sorting = 'dateUp';
+      this.sorting = SortingWords.dateUp;
       this.sortChangeBy.emit(this.sorting);
     }
   }
 
-  sortingByView() {
-    if (this.sorting === 'viewUp') {
-      this.sorting = 'viewDown';
+  sortingByView(): void {
+    if (this.sorting === SortingWords.viewUp) {
+      this.sorting = SortingWords.viewDown;
       this.sortChangeBy.emit(this.sorting);
     } else {
-      this.sorting = 'viewUp';
+      this.sorting = SortingWords.viewUp;
       this.sortChangeBy.emit(this.sorting);
     }
   }
 
-  setFilterWord(value: string) {
+  setFilterWord(value: string): void {
     this.filter = value;
     this.outFilterWord.emit(this.filter);
   }

@@ -20,6 +20,7 @@ import LogoComponent from './header/logo/logo.component';
 import LoginComponent from './header/login/login.component';
 import FilterwordPipe from './CustomPipes/filterword.pipe';
 import SortingvideoPipe from './CustomPipes/sortingvideo.pipe';
+import MyColorDirective from './Directives/my-color.directive';
 
 @NgModule({
   declarations: [
@@ -33,6 +34,7 @@ import SortingvideoPipe from './CustomPipes/sortingvideo.pipe';
     LoginComponent,
     FilterwordPipe,
     SortingvideoPipe,
+    MyColorDirective,
   ],
   imports: [
     BrowserModule,
