@@ -1,6 +1,6 @@
 import { Component, Input } from '@angular/core';
 // import IVideosResponseData from '../search-response.model';
-import data from '../../FakeData/data.json';
+import data from '../../../../shared/FakeData/data.json';
 import IItemVideoData from '../search-item.model';
 
 @Component({

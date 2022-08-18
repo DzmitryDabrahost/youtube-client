@@ -1,0 +1,18 @@
+.error {
+  &-wrapper {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    gap: 27px;
+    align-items: center;
+    height: calc(100vh - 130px);
+  }
+
+  &-message {
+    color: #828282;
+    font-weight: bold;
+    font-size: 24px;
+    line-height: 28px;
+    width: 244px;
+  }
+}

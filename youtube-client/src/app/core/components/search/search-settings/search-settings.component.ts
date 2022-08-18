@@ -1,7 +1,7 @@
 import {
   Component, EventEmitter, Input, Output,
 } from '@angular/core';
-import SortingWords from '../../Enums/SortingWords.enum.model';
+import SortingWords from '../../../../shared/Enums/SortingWords.enum.model';
 
 @Component({
   selector: 'app-search-settings',
