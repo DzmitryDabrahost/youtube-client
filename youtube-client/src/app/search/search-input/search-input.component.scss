@@ -1,0 +1,27 @@
+.search-input {
+  display: flex;
+  width: 476px;
+
+  &-form {
+    width: 100%;
+  }
+
+  &-field {
+    width: 396px;
+  }
+
+  &-input {
+    outline: none;
+    border: none;
+    height: 24px;
+    font-size: 12px;
+    color: #333333;
+    padding-left: 6px;
+  }
+
+  &-button {
+    border-radius: 0px 4px 4px 0px;
+    padding: 5px 22px;
+    width: 80px;
+  }
+}

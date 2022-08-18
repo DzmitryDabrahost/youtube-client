@@ -1,0 +1,26 @@
+<div class="card-wrapper">
+  <img src="{{ card.snippet.thumbnails.medium.url}}" alt="{{ card.snippet.channelTitle }}">
+  <div class="card-statistics">
+    <div class="card-icons">
+      <div class="card-icons-icon">
+        <mat-icon class="mat-icon" fontIcon="visibility"></mat-icon>
+        <span>{{ card.statistics.viewCount }}</span>
+      </div>
+      <div class="card-icons-icon">
+        <mat-icon class="mat-icon" fontIcon="favorite"></mat-icon>
+        <span>{{ card.statistics.likeCount }}</span>
+      </div>
+      <div class="card-icons-icon">
+        <mat-icon class="mat-icon" fontIcon="heart_broken"></mat-icon>
+        <span>{{ card.statistics.dislikeCount }}</span>
+      </div>
+      <div class="card-icons-icon">
+        <mat-icon class="mat-icon" fontIcon="forum"></mat-icon>
+        <span>{{ card.statistics.commentCount }}</span>
+      </div>
+    </div>
+  </div>
+  <h3 class="card-title">{{ card.snippet.title }}</h3>
+    <button class="card-button" id="{{ card.id }}" mat-raised-button color="primary">more...</button>
+    <div class="card-indicator" [appMyColor]="card.snippet.publishedAt"></div>
+</div>

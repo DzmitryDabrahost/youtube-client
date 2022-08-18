@@ -1,0 +1,13 @@
+<app-header (changeSettingsState)="showSettings($event)">
+  <app-search-input (outSearchText)="showCards($event)"></app-search-input>
+</app-header>
+<app-search-settings
+ *ngIf="showSettingsBlock"
+ (sortChangeBy)="sortByDate($event)"
+ (outFilterWord)="filterByWord($event)"
+ ></app-search-settings>
+<app-search-result
+  *ngIf="isShowCards"
+  [sorting]="sorting"
+  [filter]="filter"
+></app-search-result>

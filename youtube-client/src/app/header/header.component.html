@@ -1,0 +1,11 @@
+<header class="header">
+  <app-login></app-login>
+  <div class="header-wrapper">
+    <app-logo></app-logo>
+    <ng-content></ng-content>
+    <img
+    src="../../assets/search_settings.svg"
+    class="header-settings" alt="settings"
+    (click)="changeSettingsOptions()">
+  </div>
+</header>
