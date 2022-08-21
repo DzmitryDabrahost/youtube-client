@@ -21,6 +21,6 @@
     </div>
   </div>
   <h3 class="card-title">{{ card.snippet.title }}</h3>
-    <button class="card-button" id="{{ card.id }}" mat-raised-button color="primary">more...</button>
+    <button class="card-button" (click)="getCardToId(card.id)" mat-raised-button color="primary">more...</button>
     <div class="card-indicator" [appMyColor]="card.snippet.publishedAt"></div>
 </div>

@@ -1,6 +1,5 @@
-import {
-  Component, EventEmitter, Input, Output,
-} from '@angular/core';
+import MainserviceService from 'src/app/shared/services/mainservice.service';
+import { Component, Input } from '@angular/core';
 import SortingWords from '../../../../shared/Enums/SortingWords.enum.model';
 
 @Component({
@@ -11,36 +10,32 @@ import SortingWords from '../../../../shared/Enums/SortingWords.enum.model';
 export default class SearchSettingsComponent {
   @Input() isSettingsButtonClicked: boolean;
 
-  @Output() sortChangeBy = new EventEmitter<string>();
-
-  @Output() outFilterWord = new EventEmitter<string>();
-
   sorting: string;
 
   filter: string;
 
+  constructor(private mainService: MainserviceService) {}
+
   sortingByDate(): void {
     if (this.sorting === SortingWords.dateUp) {
       this.sorting = SortingWords.dateDown;
-      this.sortChangeBy.emit(this.sorting);
     } else {
       this.sorting = SortingWords.dateUp;
-      this.sortChangeBy.emit(this.sorting);
     }
+    this.mainService.sortByDate(this.sorting);
   }
 
   sortingByView(): void {
     if (this.sorting === SortingWords.viewUp) {
       this.sorting = SortingWords.viewDown;
-      this.sortChangeBy.emit(this.sorting);
     } else {
       this.sorting = SortingWords.viewUp;
-      this.sortChangeBy.emit(this.sorting);
     }
+    this.mainService.sortByDate(this.sorting);
   }
 
   setFilterWord(value: string): void {
     this.filter = value;
-    this.outFilterWord.emit(this.filter);
+    this.mainService.filterByWord(this.filter);
   }
 }

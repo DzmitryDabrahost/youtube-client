@@ -1,4 +1,7 @@
-import { Component, EventEmitter, Output } from '@angular/core';
+import { Component } from '@angular/core';
+import { Router } from '@angular/router';
+import MainserviceService from 'src/app/shared/services/mainservice.service';
+import LoginService from '../../../../auth/services/login.service';
 
 @Component({
   selector: 'app-search-input',
@@ -6,12 +9,21 @@ import { Component, EventEmitter, Output } from '@angular/core';
   styleUrls: ['./search-input.component.scss'],
 })
 export default class SearchInputComponent {
-  @Output() outSearchText = new EventEmitter<string>();
-
   cardSearchValue: string;
 
+  constructor(
+    private loginService: LoginService,
+    private mainService: MainserviceService,
+    public router: Router,
+  ) {}
+
   enterSearchValue(valueInput: string) {
-    this.cardSearchValue = valueInput;
-    this.outSearchText.emit(this.cardSearchValue);
+    if (this.loginService.isLogin()) {
+      this.cardSearchValue = valueInput;
+      this.mainService.showCards(this.cardSearchValue);
+      if (this.cardSearchValue) {
+        this.router.navigate(['search', valueInput]);
+      }
+    }
   }
 }

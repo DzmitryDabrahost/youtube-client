@@ -23,6 +23,7 @@ import SortingvideoPipe from './shared/CustomPipes/sortingvideo.pipe';
 import MyColorDirective from './shared/Directives/my-color.directive';
 import ErrorComponent from './core/pages/error/error.component';
 import AuthComponent from './auth/pages/auth/auth.component';
+import CardDetailsComponent from './youtube/components/card-details/card-details.component';
 
 @NgModule({
   declarations: [
@@ -39,6 +40,7 @@ import AuthComponent from './auth/pages/auth/auth.component';
     MyColorDirective,
     ErrorComponent,
     AuthComponent,
+    CardDetailsComponent,
   ],
   imports: [
     BrowserModule,

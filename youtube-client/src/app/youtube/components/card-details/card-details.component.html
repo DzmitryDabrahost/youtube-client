@@ -1,0 +1,54 @@
+<app-header></app-header>
+<div class="card">
+  <div class="card-wrapper">
+    <div class="card-arrow" [appMyColor]="card.snippet.publishedAt" (click)="getBack()">
+      <img src="../../../../assets/arrow.svg" alt="back">
+    </div>
+
+    <div class="card-poster">
+      <img src="{{ card.snippet.thumbnails.maxres.url }}" alt="card-poster">
+    </div>
+
+    <div class="card-description">
+      <div class="card-localized">
+        <p class="card-localized-title">
+          {{ card.snippet.localized.title }}
+        </p>
+        <p class="card-localized-date">
+          {{ card.snippet.publishedAt | date: "fullDate" }}
+        </p>
+      </div>
+
+      <div class="card-description-data">
+        <p class="card-description-title">
+          Description:
+        </p>
+        <p class="card-description-text">
+          {{ card.snippet.localized.description }}
+        </p>
+      </div>
+
+      <div class="card-description-statistics">
+        <div class="card-description-statistics-item">
+          <mat-icon class="mat-icon" fontIcon="visibility"></mat-icon>
+          <span>{{ card.statistics.viewCount }}</span>
+        </div>
+        <div class="card-description-statistics-item">
+          <mat-icon class="mat-icon" fontIcon="favorite"></mat-icon>
+          <span>{{ card.statistics.likeCount }}</span>
+        </div>
+        <div class="card-description-statistics-item">
+          <mat-icon class="mat-icon" fontIcon="heart_broken"></mat-icon>
+          <span>{{ card.statistics.dislikeCount }}</span>
+        </div>
+        <div class="card-description-statistics-item">
+          <mat-icon class="mat-icon" fontIcon="forum"></mat-icon>
+          <span>{{ card.statistics.commentCount }}</span>
+        </div>
+      </div>
+
+      <div class="card-indicator" [appMyColor]="card.snippet.publishedAt"></div>
+    </div>
+
+  </div>
+</div>

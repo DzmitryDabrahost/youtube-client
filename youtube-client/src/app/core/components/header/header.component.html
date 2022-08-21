@@ -1,11 +1,13 @@
 <header class="header">
-  <app-login></app-login>
+  <app-login [username]="username"></app-login>
   <div class="header-wrapper">
     <app-logo></app-logo>
-    <ng-content></ng-content>
+    <app-search-input></app-search-input>
     <img
     src="../../assets/search_settings.svg"
     class="header-settings" alt="settings"
     (click)="changeSettingsOptions()">
   </div>
 </header>
+<app-search-settings *ngIf="isSettingsButtonClicked"></app-search-settings>
+
