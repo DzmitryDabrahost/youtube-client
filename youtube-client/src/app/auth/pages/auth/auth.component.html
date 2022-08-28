@@ -1,0 +1,23 @@
+<app-header></app-header>
+<div class="auth">
+  <div class="auth-wrapper">
+    <h3 class="auth-title">Login</h3>
+    <form [formGroup]="form" (ngSubmit)="addLogin()" class="auth-form">
+      <mat-form-field class="auth-mat-form-field" appearance="fill">
+        <mat-label>login</mat-label>
+        <input [(ngModel)]="loginName" class="auth-input" matInput formControlName="username">
+      </mat-form-field>
+
+      <mat-form-field class="auth-mat-form-field" appearance="fill">
+        <mat-label>password</mat-label>
+        <input [(ngModel)]="loginPass" class="auth-input" matInput [type]="hide ? 'password' : 'text'" formControlName="password">
+        <button type="button" mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
+          <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+        </button>
+      </mat-form-field>
+      <div class="auth-buttons">
+        <button type="submit" [disabled]="form.invalid" mat-raised-button class="auth-buttons-button">{{ buttonValue }}</button>
+      </div>
+    </form>
+  </div>
+</div>
