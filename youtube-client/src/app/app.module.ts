@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MatFormFieldModule } from '@angular/material/form-field';
@@ -25,6 +25,7 @@ import ErrorComponent from './core/pages/error/error.component';
 import AuthComponent from './auth/pages/auth/auth.component';
 import CardDetailsComponent from './youtube/components/card-details/card-details.component';
 import MainpageComponent from './youtube/components/mainpage/mainpage.component';
+import HeaderInterceptor from './core/interceptor/header.interceptor';
 
 @NgModule({
   declarations: [
@@ -56,7 +57,13 @@ import MainpageComponent from './youtube/components/mainpage/mainpage.component'
     MatButtonModule,
     HttpClientModule,
   ],
-  providers: [],
+  providers: [
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: HeaderInterceptor,
+      multi: true,
+    },
+  ],
   bootstrap: [AppComponent],
 })
 export default class AppModule { }

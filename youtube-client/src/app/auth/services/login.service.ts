@@ -6,7 +6,7 @@ import { Router } from '@angular/router';
   providedIn: 'root',
 })
 export default class LoginService {
-  public isLogged$ = new BehaviorSubject<boolean>(false);
+  public isLogged$ = new BehaviorSubject<boolean>(!!localStorage.getItem('name'));
 
   public loginName$ = new BehaviorSubject<string>(localStorage.getItem('name') || 'Your name');
 
