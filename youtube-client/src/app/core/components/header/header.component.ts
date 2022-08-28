@@ -16,13 +16,13 @@ export default class HeaderComponent implements OnInit {
   constructor(private loginService: LoginService) {}
 
   ngOnInit() {
-    this.loginService.loginName.subscribe((value) => {
+    this.loginService.loginName$.subscribe((value) => {
       this.username = value;
     });
   }
 
   changeSettingsOptions(): void {
-    if (this.loginService.isLogin()) {
+    if (this.loginService.isLogged$.value) {
       this.isSettingsButtonClicked = !this.isSettingsButtonClicked;
     }
   }

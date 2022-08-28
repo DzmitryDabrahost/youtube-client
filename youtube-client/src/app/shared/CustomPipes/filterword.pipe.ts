@@ -5,14 +5,13 @@ import IItemVideoData from '../../core/components/search/search-item.model';
   name: 'filterword',
 })
 export default class FilterwordPipe implements PipeTransform {
-  filtered: IItemVideoData[] = [];
+  search: string;
 
-  transform(value: IItemVideoData[], search: string = ''): IItemVideoData[] {
-    if (value) {
-      const lowerSearch = search.toLowerCase();
-      this.filtered = value.filter((title) => title.snippet.title
-        .toLowerCase().includes(lowerSearch));
-    }
-    return this.filtered;
+  transform(value: IItemVideoData[], search: string): IItemVideoData[] {
+    this.search = search;
+    const lowerSearch = this.search.toLowerCase();
+    return this.search
+      ? value.filter((title) => title.snippet.title.toLowerCase().includes(lowerSearch))
+      : value;
   }
 }

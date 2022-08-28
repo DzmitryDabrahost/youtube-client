@@ -1,8 +1,7 @@
-<app-header></app-header>
 <main class="main">
   <div class="main-wrapper">
     <app-search-item
-      *ngFor="let card of requestData | filterword:filter | sortingvideo:sorting"
+      *ngFor="let card of cards | filterword:filter | sortingvideo:sorting"
       [card]="card"
       ></app-search-item>
   </div>

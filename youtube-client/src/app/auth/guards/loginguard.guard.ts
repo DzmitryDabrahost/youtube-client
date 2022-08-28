@@ -1,10 +1,5 @@
 import { Injectable } from '@angular/core';
-import {
-  CanActivate,
-  Router,
-  UrlTree,
-} from '@angular/router';
-import { Observable, of } from 'rxjs';
+import { CanActivate, Router } from '@angular/router';
 import LoginService from '../services/login.service';
 
 @Injectable({
@@ -16,11 +11,11 @@ export default class LoginguardGuard implements CanActivate {
     private router: Router,
   ) {}
 
-  canActivate(): Observable<boolean | UrlTree> | Promise<boolean | UrlTree> | boolean | UrlTree {
-    if (this.auth.isLogin()) {
-      return of(true);
+  canActivate(): boolean {
+    if (this.auth.isLogged$.value) {
+      return true;
     }
     this.router.navigate(['/auth']);
-    return of(false);
+    return false;
   }
 }

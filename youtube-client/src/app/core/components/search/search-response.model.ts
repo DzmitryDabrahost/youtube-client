@@ -8,6 +8,6 @@ export default interface IVideosResponseData {
 }
 
 interface PageInfo {
-  resultsPerPage: number;
-  totalResults: number;
+  resultsPerPage: string;
+  totalResults: string;
 }

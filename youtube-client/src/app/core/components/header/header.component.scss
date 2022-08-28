@@ -15,6 +15,12 @@
   &-logo {
     width: 50px;
     height: 50px;
+
+    &-button {
+      height: 24px;
+      color: white;
+      background: #2F80ED;
+    }
   }
 
   &-settings {

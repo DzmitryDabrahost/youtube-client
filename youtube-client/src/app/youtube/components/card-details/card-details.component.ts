@@ -1,7 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { Location } from '@angular/common';
 import { ActivatedRoute } from '@angular/router';
-import CardIdService from '../../services/card-id.service';
+
+import IItemVideoData from 'src/app/core/components/search/search-item.model';
+import KeyAPIService from '../../services/youtuve-api.service';
 
 @Component({
   selector: 'app-card-details',
@@ -13,18 +15,15 @@ export default class CardDetailsComponent implements OnInit {
 
   constructor(
     public router: ActivatedRoute,
-    private cardToIdService: CardIdService,
+    private youtubeService: KeyAPIService,
     private location: Location,
   ) {}
 
-  ngOnInit() {
-    this.getCard();
-  }
-
-  getCard(): void {
-    const id = this.router.snapshot.paramMap.get('id');
-    const newCard = this.cardToIdService.getCard(id);
-    this.card = newCard;
+  ngOnInit(): void {
+    const id: string | null = this.router.snapshot.paramMap.get('id');
+    this.youtubeService.youtubeData$.subscribe((response: IItemVideoData[]) => {
+      this.card = response.find((item: IItemVideoData) => item.id === id);
+    });
   }
 
   getBack() {

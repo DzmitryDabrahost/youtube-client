@@ -1,4 +1,7 @@
 <div class="header-login">
   <span class="header-logo-username">{{ username }}</span>
-  <a [routerLink]="'/auth'"><img src="../../assets/login.svg" class="header-login-icon" alt="Login"></a>
+  <a *ngIf="showButtonLogout; else logoutButton"><img src="../../assets/login.svg" class="header-login-icon" alt="Login"></a>
+  <ng-template #logoutButton>
+    <mat-icon class="mat-icon" class="header-login-button" (click)="logOut()" fontIcon="logout"></mat-icon>
+  </ng-template>
 </div>

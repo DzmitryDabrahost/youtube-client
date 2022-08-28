@@ -1,6 +1,10 @@
-import { Component } from '@angular/core';
+import { FormControl, Validators } from '@angular/forms';
+import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { debounceTime, filter } from 'rxjs';
+
 import MainserviceService from 'src/app/shared/services/mainservice.service';
+import KeyAPIService from 'src/app/youtube/services/youtuve-api.service';
 import LoginService from '../../../../auth/services/login.service';
 
 @Component({
@@ -8,22 +12,29 @@ import LoginService from '../../../../auth/services/login.service';
   templateUrl: './search-input.component.html',
   styleUrls: ['./search-input.component.scss'],
 })
-export default class SearchInputComponent {
-  cardSearchValue: string;
+export default class SearchInputComponent implements OnInit {
+  searchInput: FormControl;
 
   constructor(
     private loginService: LoginService,
     private mainService: MainserviceService,
+    private youtubeService: KeyAPIService,
     public router: Router,
   ) {}
 
-  enterSearchValue(valueInput: string) {
-    if (this.loginService.isLogin()) {
-      this.cardSearchValue = valueInput;
-      this.mainService.showCards(this.cardSearchValue);
-      if (this.cardSearchValue) {
-        this.router.navigate(['search', valueInput]);
-      }
-    }
+  ngOnInit(): void {
+    this.searchInput = new FormControl(null, Validators.minLength(3));
+    this.searchInput.valueChanges
+      .pipe(
+        debounceTime(1000),
+        filter((value) => value.trim().length >= 3),
+      )
+      .subscribe((inputValue) => {
+        if (this.loginService.isLogged$.value) {
+          this.youtubeService.search(inputValue);
+          this.mainService.showCards(inputValue);
+          this.router.navigate(['search', inputValue]);
+        }
+      });
   }
 }

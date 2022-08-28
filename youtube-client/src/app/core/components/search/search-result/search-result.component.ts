@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import FakedataService from '../../../../shared/services/fakedata.service';
+import KeyAPIService from 'src/app/youtube/services/youtuve-api.service';
 import MainserviceService from '../../../../shared/services/mainservice.service';
 import IItemVideoData from '../search-item.model';
 
@@ -13,19 +13,21 @@ export default class SearchResultComponent implements OnInit {
 
   filter: string;
 
-  requestData: IItemVideoData[];
+  cards: IItemVideoData[] = [];
 
   constructor(
-    private fakeData: FakedataService,
+    public youtubeAPI: KeyAPIService,
     private mainServise: MainserviceService,
   ) {}
 
   ngOnInit(): void {
-    this.requestData = this.fakeData.fakeData.items;
-    this.mainServise.sorting.subscribe((value) => {
+    this.youtubeAPI.youtubeData$.subscribe((items) => {
+      this.cards = items;
+    });
+    this.mainServise.sorting$.subscribe((value) => {
       this.sorting = value;
     });
-    this.mainServise.filter.subscribe((value) => {
+    this.mainServise.filter$.subscribe((value) => {
       this.filter = value;
     });
   }

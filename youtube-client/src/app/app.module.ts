@@ -24,6 +24,7 @@ import MyColorDirective from './shared/Directives/my-color.directive';
 import ErrorComponent from './core/pages/error/error.component';
 import AuthComponent from './auth/pages/auth/auth.component';
 import CardDetailsComponent from './youtube/components/card-details/card-details.component';
+import MainpageComponent from './youtube/components/mainpage/mainpage.component';
 
 @NgModule({
   declarations: [
@@ -41,6 +42,7 @@ import CardDetailsComponent from './youtube/components/card-details/card-details
     ErrorComponent,
     AuthComponent,
     CardDetailsComponent,
+    MainpageComponent,
   ],
   imports: [
     BrowserModule,
