@@ -2,8 +2,8 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import ErrorComponent from './core/pages/error/error.component';
 import AuthComponent from './auth/pages/auth/auth.component';
-import CardDetailsComponent from './youtube/components/card-details/card-details.component';
-import SearchResultComponent from './core/components/search/search-result/search-result.component';
+import CardDetailsComponent from './youtube/components/cardDetails/cardDetails.component';
+import SearchResultComponent from './core/components/search/searchResult/searchResult.component';
 import LoginguardGuard from './auth/guards/loginguard.guard';
 import MainpageComponent from './youtube/components/mainpage/mainpage.component';
 

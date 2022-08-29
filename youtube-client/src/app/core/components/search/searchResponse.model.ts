@@ -1,4 +1,4 @@
-import IItemVideoData from './search-item.model';
+import IItemVideoData from './searchItem.model';
 
 export default interface IVideosResponseData {
   etag: string;

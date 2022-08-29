@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { BehaviorSubject, map, mergeMap } from 'rxjs';
-import IItemVideoData from 'src/app/core/components/search/search-item.model';
+import IItemVideoData from 'src/app/core/components/search/searchItem.model';
 
 @Injectable({
   providedIn: 'root',

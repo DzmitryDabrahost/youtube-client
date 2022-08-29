@@ -1,12 +1,12 @@
 import { Component, OnInit } from '@angular/core';
-import KeyAPIService from 'src/app/youtube/services/youtuve-api.service';
+import KeyAPIService from 'src/app/youtube/services/youtubeApi.service';
 import MainserviceService from '../../../../shared/services/mainservice.service';
-import IItemVideoData from '../search-item.model';
+import IItemVideoData from '../searchItem.model';
 
 @Component({
   selector: 'app-search-result',
-  templateUrl: './search-result.component.html',
-  styleUrls: ['./search-result.component.scss'],
+  templateUrl: './searchResult.component.html',
+  styleUrls: ['./searchResult.component.scss'],
 })
 export default class SearchResultComponent implements OnInit {
   sorting: string;

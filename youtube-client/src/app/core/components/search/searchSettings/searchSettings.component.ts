@@ -4,8 +4,8 @@ import SortingWords from '../../../../shared/Enums/SortingWords.enum.model';
 
 @Component({
   selector: 'app-search-settings',
-  templateUrl: './search-settings.component.html',
-  styleUrls: ['./search-settings.component.scss'],
+  templateUrl: './searchSettings.component.html',
+  styleUrls: ['./searchSettings.component.scss'],
 })
 export default class SearchSettingsComponent {
   @Input() isSettingsButtonClicked: boolean;

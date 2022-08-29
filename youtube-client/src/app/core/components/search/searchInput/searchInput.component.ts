@@ -4,13 +4,13 @@ import { Router } from '@angular/router';
 import { debounceTime, filter } from 'rxjs';
 
 import MainserviceService from 'src/app/shared/services/mainservice.service';
-import KeyAPIService from 'src/app/youtube/services/youtuve-api.service';
+import KeyAPIService from 'src/app/youtube/services/youtubeApi.service';
 import LoginService from '../../../../auth/services/login.service';
 
 @Component({
   selector: 'app-search-input',
-  templateUrl: './search-input.component.html',
-  styleUrls: ['./search-input.component.scss'],
+  templateUrl: './searchInput.component.html',
+  styleUrls: ['./searchInput.component.scss'],
 })
 export default class SearchInputComponent implements OnInit {
   searchInput: FormControl;
