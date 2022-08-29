@@ -12,19 +12,19 @@ export default class LoginService {
 
   constructor(private router: Router) {}
 
-  login(userInfo?: { username: string, password: string }): Observable<string | boolean> {
-    if (userInfo) {
-      this.loginName$.next(userInfo.username);
-      localStorage.setItem('name', userInfo.username);
-      this.isLogged$.next(true);
-      return of(true);
-    }
-    this.isLogged$.next(false);
-    this.loginName$.next('Your name');
-    return of(false);
+  login(userInfo: { username: string, password: string }): Observable<boolean> {
+    this.loginName$.next(userInfo.username);
+    localStorage.setItem('name', userInfo.username);
+    this.isLogged$.next(true);
+    return of(true);
   }
 
   logout(): void {
-    this.router.navigate(['auth']);
+    if (confirm('Are you sure?')) {
+      localStorage.removeItem('name');
+      this.router.navigate(['auth']);
+      this.isLogged$.next(false);
+      this.loginName$.next('Your name');
+    }
   }
 }

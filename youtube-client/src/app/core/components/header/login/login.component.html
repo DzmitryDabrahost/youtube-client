@@ -1,7 +1,9 @@
 <div class="header-login">
-  <span class="header-logo-username">{{ username }}</span>
-  <a *ngIf="showButtonLogout; else logoutButton"><img src="../../assets/login.svg" class="header-login-icon" alt="Login"></a>
+  <span class="header-logo-username">{{ loginService.loginName$ | async }}</span>
+  <a *ngIf="loginService.isLogged$ | async; else logoutButton">
+    <mat-icon class="mat-icon" class="header-login-button" (click)="loginService.logout()" fontIcon="logout"></mat-icon>
+  </a>
   <ng-template #logoutButton>
-    <mat-icon class="mat-icon" class="header-login-button" (click)="logOut()" fontIcon="logout"></mat-icon>
+    <img src="../../assets/login.svg" class="header-login-icon" alt="Login">
   </ng-template>
 </div>
