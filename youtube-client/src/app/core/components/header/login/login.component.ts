@@ -1,4 +1,5 @@
-import { Component, Input } from '@angular/core';
+import { Component } from '@angular/core';
+import LoginService from 'src/app/auth/services/login.service';
 
 @Component({
   selector: 'app-login',
@@ -6,5 +7,5 @@ import { Component, Input } from '@angular/core';
   styleUrls: ['./login.component.scss'],
 })
 export default class LoginComponent {
-  @Input() username: string | null;
+  constructor(public loginService: LoginService) {}
 }

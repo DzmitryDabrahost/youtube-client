@@ -1,4 +1,3 @@
-<app-header></app-header>
 <div class="card">
   <div class="card-wrapper">
     <div class="card-arrow" [appMyColor]="card.snippet.publishedAt" (click)="getBack()">
@@ -6,7 +5,7 @@
     </div>
 
     <div class="card-poster">
-      <img src="{{ card.snippet.thumbnails.maxres.url }}" alt="card-poster">
+      <img src="{{ card.snippet.thumbnails.high.url }}" alt="card-poster">
     </div>
 
     <div class="card-description">
@@ -36,10 +35,6 @@
         <div class="card-description-statistics-item">
           <mat-icon class="mat-icon" fontIcon="favorite"></mat-icon>
           <span>{{ card.statistics.likeCount }}</span>
-        </div>
-        <div class="card-description-statistics-item">
-          <mat-icon class="mat-icon" fontIcon="heart_broken"></mat-icon>
-          <span>{{ card.statistics.dislikeCount }}</span>
         </div>
         <div class="card-description-statistics-item">
           <mat-icon class="mat-icon" fontIcon="forum"></mat-icon>

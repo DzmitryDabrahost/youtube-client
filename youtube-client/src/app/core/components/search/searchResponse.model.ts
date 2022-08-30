@@ -1,4 +1,4 @@
-import IItemVideoData from './search-item.model';
+import IItemVideoData from './searchItem.model';
 
 export default interface IVideosResponseData {
   etag: string;
@@ -8,6 +8,6 @@ export default interface IVideosResponseData {
 }
 
 interface PageInfo {
-  resultsPerPage: number;
-  totalResults: number;
+  resultsPerPage: string;
+  totalResults: string;
 }

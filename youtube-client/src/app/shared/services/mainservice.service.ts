@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { Observable, BehaviorSubject } from 'rxjs';
+import { BehaviorSubject } from 'rxjs';
 
 @Injectable({
   providedIn: 'root',
@@ -9,18 +9,9 @@ export default class MainserviceService {
 
   isShowCards: boolean = false;
 
-  public sorting: Observable<string>;
+  public sorting$ = new BehaviorSubject('');
 
-  private sorting$ = new BehaviorSubject('');
-
-  public filter: Observable<string>;
-
-  private filter$ = new BehaviorSubject('');
-
-  constructor() {
-    this.sorting = this.sorting$.asObservable();
-    this.filter = this.filter$.asObservable();
-  }
+  public filter$ = new BehaviorSubject('');
 
   showCards(value: string): void {
     this.searchValue = value;

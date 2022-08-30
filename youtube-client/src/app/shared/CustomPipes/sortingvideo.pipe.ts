@@ -1,5 +1,5 @@
 import { Pipe, PipeTransform } from '@angular/core';
-import IItemVideoData from '../../core/components/search/search-item.model';
+import IItemVideoData from '../../core/components/search/searchItem.model';
 import SortingWords from '../Enums/SortingWords.enum.model';
 
 @Pipe({

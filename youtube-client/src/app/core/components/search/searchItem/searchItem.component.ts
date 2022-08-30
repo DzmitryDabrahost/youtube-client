@@ -1,11 +1,11 @@
 import { Component, Input } from '@angular/core';
 import { Router } from '@angular/router';
-import IItemVideoData from '../search-item.model';
+import IItemVideoData from '../searchItem.model';
 
 @Component({
   selector: 'app-search-item',
-  templateUrl: './search-item.component.html',
-  styleUrls: ['./search-item.component.scss'],
+  templateUrl: './searchItem.component.html',
+  styleUrls: ['./searchItem.component.scss'],
 })
 export default class SearchItemComponent {
   @Input() card: IItemVideoData;
