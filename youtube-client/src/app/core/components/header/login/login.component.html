@@ -1,5 +1,6 @@
 <div class="header-login">
   <span class="header-logo-username">{{ loginService.loginName$ | async }}</span>
+  <app-admin-options *ngIf="loginService.isAdmin$ | async"></app-admin-options>
   <a *ngIf="loginService.isLogged$ | async; else logoutButton">
     <mat-icon class="mat-icon" class="header-login-button" (click)="loginService.logout()" fontIcon="logout"></mat-icon>
   </a>

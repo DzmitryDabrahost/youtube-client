@@ -5,17 +5,42 @@
       <mat-form-field class="auth-mat-form-field" appearance="fill">
         <mat-label>login</mat-label>
         <input class="auth-input" matInput formControlName="username">
+        <mat-error *ngIf="form.get('username')?.hasError('required')">
+          Please enter a login email
+        </mat-error>
+        <mat-error *ngIf="form.get('username')?.hasError('email')">
+          The login email is invalid
+        </mat-error>
       </mat-form-field>
 
       <mat-form-field class="auth-mat-form-field" appearance="fill">
         <mat-label>password</mat-label>
-        <input class="auth-input" matInput [type]="hide ? 'password' : 'text'" formControlName="password">
+        <input class="auth-input" id="password" name="password" matInput [type]="hide ? 'password' : 'text'" formControlName="password">
         <button type="button" mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
           <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
         </button>
+        <mat-error *ngIf="form.get('password')?.hasError('required')">
+          Please enter a password
+        </mat-error>
+        <mat-error *ngIf="form.invalid">
+          Your password isn't strong enough
+        </mat-error>
+        <mat-error *ngIf="form.get('password')?.hasError('minlength')">
+          at least 8 characters
+        </mat-error>
+        <mat-error *ngIf="form.get('password')?.hasError('hasUpperLetter') ||
+        form.get('password')?.hasError('hasLowerLetter')">
+          a mixture of both uppercase and lowercase letters
+        </mat-error>
+        <mat-error *ngIf="form.get('password')?.hasError('hasNumbers')">
+          a mixture of letters and numbers
+        </mat-error>
+        <mat-error *ngIf="form.get('password')?.hasError('hasSpecialSymbols')">
+          inclusion of at least one special character, e.g., ! @ # ? ]
+        </mat-error>
       </mat-form-field>
       <div class="auth-buttons">
-        <button type="submit" [disabled]="form.invalid" mat-raised-button class="auth-buttons-button">Login</button>
+        <button [disabled]="form.invalid" type="submit" mat-raised-button class="auth-buttons-button">Login</button>
       </div>
     </form>
   </div>

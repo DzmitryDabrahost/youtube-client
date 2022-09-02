@@ -1,0 +1,70 @@
+<div class="admin">
+  <div class="admin-wrapper">
+    <h3 class="admin-title">Create new card</h3>
+      <form class="admin-form" [formGroup]="adminForm" (ngSubmit)="addCard()">
+
+        <mat-form-field class="admin-form-full-width" appearance="fill">
+          <mat-label>Title</mat-label>
+          <input type="text" matInput formControlName="title">
+          <mat-error *ngIf="adminForm.get('title')?.hasError('required')">
+            <strong>Please enter a title</strong>
+          </mat-error>
+          <mat-error *ngIf="adminForm.get('title')?.hasError('minlength')">
+            The title is too short
+          </mat-error>
+          <mat-error *ngIf="adminForm.get('title')?.hasError('maxlength')">
+            The title is too long
+          </mat-error>
+        </mat-form-field>
+
+        <mat-form-field class="admin-form-full-width" appearance="fill">
+          <mat-label>Description</mat-label>
+          <textarea #textarea rows="7" matInput formControlName="description"></textarea>
+          <mat-hint align="end">{{textarea.value.length}} / 255</mat-hint>
+          <mat-error *ngIf="adminForm.get('description')?.hasError('maxlength')">
+            The description is too long
+          </mat-error>
+        </mat-form-field>
+
+        <mat-form-field class="admin-form-full-width" appearance="fill">
+          <mat-label>Image link</mat-label>
+          <input type="url" matInput formControlName="imageUrl">
+          <mat-error *ngIf="adminForm.get('imageUrl')?.hasError('required')">
+            <strong>Please enter a link to the image</strong>
+          </mat-error>
+          <mat-error *ngIf="adminForm.get('imageUrl')?.hasError('pattern')">
+            The image link is invalid (only https)
+          </mat-error>
+        </mat-form-field>
+
+        <mat-form-field class="admin-form-full-width" appearance="fill">
+          <mat-label>Video link</mat-label>
+          <input type="url" matInput formControlName="videoLink">
+          <mat-error *ngIf="adminForm.get('videoLink')?.hasError('required')">
+            <strong>Please enter a link to the video</strong>
+          </mat-error>
+          <mat-error *ngIf="adminForm.get('videoLink')?.hasError('pattern')">
+            The video link is invalid (only https)
+          </mat-error>
+        </mat-form-field>
+
+        <mat-form-field class="admin-form-full-width" color="accent" appearance="fill">
+          <mat-label>Date</mat-label>
+          <input matInput [matDatepicker]="picker" formControlName="date">
+          <mat-hint>MM/DD/YYYY</mat-hint>
+          <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+          <mat-datepicker #picker color="primary"></mat-datepicker>
+          <mat-error *ngIf="adminForm.get('date')?.hasError('required')">
+            <strong>Please enter a creation date</strong>
+          </mat-error>
+          <mat-error *ngIf="adminForm.get('date')?.hasError('date')">
+            The date is invalid
+          </mat-error>
+        </mat-form-field>
+
+        <div class="admin-buttons">
+          <button [disabled]="adminForm.invalid" type="submit" mat-raised-button class="admin-button">Create card</button>
+        </div>
+      </form>
+  </div>
+</div>

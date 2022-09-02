@@ -16,6 +16,8 @@ export default class HeaderComponent implements OnInit {
   constructor(private loginService: LoginService) {}
 
   ngOnInit() {
+    // TODO to check
+    localStorage.setItem('adminAcess', 'login: admin@admin.com, password: qweQWE1@');
     this.loginService.loginName$.subscribe((value) => {
       this.username = value;
     });
