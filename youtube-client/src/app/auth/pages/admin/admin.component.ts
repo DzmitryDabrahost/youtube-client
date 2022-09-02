@@ -22,7 +22,7 @@ export default class AdminComponent implements OnInit {
   private customDateValidators(control: FormControl): null | { [key: string]: boolean } {
     const value: Date = new Date(control.value);
     const maxDate: Date = new Date();
-    if (maxDate.getTime() < value.getTime()) {
+    if (maxDate.getTime() > value.getTime()) {
       return { date: true };
     }
     return null;
