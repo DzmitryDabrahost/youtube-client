@@ -1,5 +1,10 @@
 import { Component, OnInit } from '@angular/core';
-import { FormControl, FormGroup, Validators } from '@angular/forms';
+import {
+  FormBuilder,
+  FormControl,
+  FormGroup,
+  Validators,
+} from '@angular/forms';
 import LoginService from 'src/app/auth/services/login.service';
 import { Router } from '@angular/router';
 
@@ -16,15 +21,44 @@ export default class AuthComponent implements OnInit {
   loginName: string = localStorage.getItem('name') || '';
 
   constructor(
+    private fb: FormBuilder,
     private loginService: LoginService,
     public router: Router,
   ) {}
 
   ngOnInit() {
-    this.form = new FormGroup({
-      username: new FormControl(null, Validators.required),
-      password: new FormControl(null, Validators.required),
+    this.form = this.fb.group({
+      username: [null, [
+        Validators.required,
+        Validators.email,
+      ]],
+      password: [null, [
+        Validators.required,
+        Validators.minLength(8),
+        this.passwordValidator,
+      ]],
     });
+  }
+
+  private passwordValidator(control: FormControl): null | { [key: string]: boolean } {
+    const { value } = control;
+    const hasUpperLetter = /[A-Z]/.test(value);
+    const hasLowerLetter = /[a-z]/.test(value);
+    const hasNumbers = /[0-9]/.test(value);
+    const hasSpecialSymbols = /[!@#$%&*]/.test(value);
+
+    switch (true) {
+      case !hasUpperLetter:
+        return { hasUpperLetter: true };
+      case !hasLowerLetter:
+        return { hasLowerLetter: true };
+      case !hasNumbers:
+        return { hasNumbers: true };
+      case !hasSpecialSymbols:
+        return { hasSpecialSymbols: true };
+      default:
+        return null;
+    }
   }
 
   addLogin(): void {

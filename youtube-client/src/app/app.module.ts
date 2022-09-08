@@ -1,4 +1,5 @@
 import { NgModule } from '@angular/core';
+import { MatNativeDateModule } from '@angular/material/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
@@ -8,6 +9,7 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { MatIconModule } from '@angular/material/icon';
 import { MatButtonModule } from '@angular/material/button';
+import { MatDatepickerModule } from '@angular/material/datepicker';
 
 import AppRoutingModule from './app-routing.module';
 import AppComponent from './app.component';
@@ -26,6 +28,8 @@ import AuthComponent from './auth/pages/auth/auth.component';
 import CardDetailsComponent from './youtube/components/cardDetails/cardDetails.component';
 import MainpageComponent from './youtube/components/mainpage/mainpage.component';
 import HeaderInterceptor from './core/interceptor/header.interceptor';
+import AdminComponent from './auth/pages/admin/admin.component';
+import AdminOptionsComponent from './core/components/header/admin-options/admin-options.component';
 
 @NgModule({
   declarations: [
@@ -44,6 +48,8 @@ import HeaderInterceptor from './core/interceptor/header.interceptor';
     AuthComponent,
     CardDetailsComponent,
     MainpageComponent,
+    AdminComponent,
+    AdminOptionsComponent,
   ],
   imports: [
     BrowserModule,
@@ -55,6 +61,8 @@ import HeaderInterceptor from './core/interceptor/header.interceptor';
     ReactiveFormsModule,
     MatIconModule,
     MatButtonModule,
+    MatDatepickerModule,
+    MatNativeDateModule,
     HttpClientModule,
   ],
   providers: [

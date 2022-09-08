@@ -1,4 +1,4 @@
-.auth {
+.admin {
   width: 100%;
   padding-top: 45px;
   display: flex;
@@ -6,9 +6,9 @@
 
   &-wrapper {
     width: 350px;
-    height: 320px;
+    height: 590px;
     background: #E5E5E5;
-    padding: 28px 26px 26px 20px;
+    padding: 26px;
     border-radius: 15px;
   }
 
@@ -18,20 +18,19 @@
     line-height: 21px;
   }
 
-  &-mat-form-field {
+  &-form-full-width {
     width: 100%;
   }
 
   &-buttons {
     display: flex;
-    width: 100%;
     justify-content: center;
-    padding-top: 50px;
+    padding-top: 10px;
+  }
 
-    &-button {
-      background: #2F80ED;
-      color: white;
-      width: 45%;
-    }
+  &-button {
+    background: #2F80ED;
+    color: white;
+    width: 45%;
   }
 }
